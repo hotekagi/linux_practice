@@ -3,20 +3,24 @@
 MacBook使い（linuxではない人）が，dockerを使って「Linuxのしくみ」を走破する．
 
 ## メモ
+#### イメージを作成してコンテナを起動，bashで入る
+```
+./run.sh
+```
 
-Dockerfile：作成中
-start.sh：これでイメージを作成してコンテナに入る
+#### コンテナのsrc内をコピーして取り出す
+```
+./exported.sh
+```
 
-<br>
+VSCodeのDev Containersを使ってコンテナ内のファイルを直接編集する
 
 #### dockerのイメージを作成
 ```
 docker build -t linux_practice .
 ```
 `-t`あるいは`--tag`はタグでイメージに名前をつける．  
-`.`でカレントディレクトリのDockerfileからイメージを作成．  
-
-<br>
+`.`でカレントディレクトリのDockerfileからイメージを作成．
 
 #### コンテナを作成して入る
 ```
@@ -28,27 +32,19 @@ docker run -it --rm linux_practice bash
 `--rm`docker runを終了するとコンテナを削除する．   
 `bash`pythonのイメージで作成したのでこれが無いとデフォルトでpythonのインタラクティブシェルに入ってしまう．
 
-<br>
-
 #### version確認
-
 ```
 go version
 python --version
 ```
 
-<br>
-
 #### コンテナの起動，中に入る，停止，削除
-
 ```
 docker start linux_practice
 docker exec -it linux_practice bash
 docker stop linux_practice
 docker rm linux_practice
 ```
-
-<br>
 
 ## 参考にした記事
 
