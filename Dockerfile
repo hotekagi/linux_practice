@@ -12,6 +12,9 @@ RUN set -x \
 ENV PATH $PATH:/usr/local/go/bin
 ENV GOPATH $HOME/work
 
+RUN apt-get update && \
+    apt-get install -y strace
+
 WORKDIR /linux_practice
 
 COPY .  ./
