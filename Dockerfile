@@ -13,7 +13,14 @@ ENV PATH $PATH:/usr/local/go/bin
 ENV GOPATH $HOME/work
 
 RUN apt-get update && \
-    apt-get install -y strace
+    apt-get install -y util-linux strace cron sysstat
+
+# activate sar
+RUN sed -i 's/ENABLED="false"/ENABLED="true"/' /etc/default/sysstat && \
+    service cron start && \
+    /etc/init.d/sysstat start && \
+    service cron status && \
+    service sysstat status
 
 WORKDIR /linux_practice
 
