@@ -7,9 +7,13 @@ MacBook使い（linuxではない人）が，dockerを使って「Linuxのしく
 ```
 ./run.sh
 ```
-各章で使うコマンドも`apt-get`で入れていきます．
+pythonの環境構築がめんどくさそうなのでイメージで，golangはインストールしてくる．
+各章で使うコマンドも`apt-get`で入れていく．
 docker buildでキャッシュを効かせるために，
-変更の多いコマンドは分けて下の方に書くといいらしいですね．
+変更の多いコマンドは分けて下の方に書くといいらしい．
+
+3章でnumpy, matplotlib, PILが必要になる．
+コンテナ内かDockerfileで`pip install matplotlib`すればよい(numpyとPillowは依存パッケージなので付いてくる)
 
 #### コンテナのsrc内をコピーして取り出す
 ```
@@ -71,3 +75,6 @@ https://eng-entrance.com/linux-command-ps
 
 manコマンドを入れる  
 http://dqn.sakusakutto.jp/2013/03/ubuntu_man_systemcall.html
+
+CPU情報が知りたくなったとき  
+https://qiita.com/yoshi389111/items/a9026769a6c6a8786c90
