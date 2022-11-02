@@ -7,6 +7,9 @@ MacBook使い（linuxではない人）が，dockerを使って「Linuxのしく
 ```
 ./run.sh
 ```
+各章で使うコマンドも`apt-get`で入れていきます．
+docker buildでキャッシュを効かせるために，
+変更の多いコマンドは分けて下の方に書くといいらしいですね．
 
 #### コンテナのsrc内をコピーして取り出す
 ```
@@ -59,3 +62,12 @@ https://qiita.com/zaki-lknr/items/f0ca0a28e5445884f30a
 
 sarの有効化  
 https://qiita.com/toshichan18/items/4c6a0ca02466f2e8f32a
+
+psコマンド(概要)  
+https://qiita.com/aya_akatsuki/items/7efc81ef9f2b1ec11c58
+
+psコマンド(詳しい)  
+https://eng-entrance.com/linux-command-ps
+
+manコマンドを入れる  
+http://dqn.sakusakutto.jp/2013/03/ubuntu_man_systemcall.html
