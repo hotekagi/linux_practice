@@ -13,7 +13,10 @@ ENV PATH $PATH:/usr/local/go/bin
 ENV GOPATH $HOME/work
 
 RUN apt-get update && \
-    apt-get install -y util-linux strace cron sysstat less man manpages-dev
+    apt-get install -y util-linux strace cron sysstat \
+        less man manpages-dev fonts-ipafont
+
+RUN pip install matplotlib
 
 # activate sar
 RUN sed -i 's/ENABLED="false"/ENABLED="true"/' /etc/default/sysstat && \

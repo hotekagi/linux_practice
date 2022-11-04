@@ -15,6 +15,9 @@ docker buildでキャッシュを効かせるために，
 3章でnumpy, matplotlib, PILが必要になる．
 コンテナ内かDockerfileで`pip install matplotlib`すればよい(numpyとPillowは依存パッケージなので付いてくる)
 
+matplotlibをimportしようとして気付いたが，本の通り`#!/usr/bin/python3`とshebangを書いているとpython3.9が呼ばれてしまうので，`#!/usr/local/bin/python3`とする必要がある．
+また，日本語フォントを入れないとmatplotlibが文字化けする．
+
 #### コンテナのsrc内をコピーして取り出す
 ```
 ./exported.sh
