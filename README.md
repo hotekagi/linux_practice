@@ -57,6 +57,9 @@ docker run -it --rm linux_practice bash
 `--rm`docker runを終了するとコンテナを削除する．   
 `bash`pythonのイメージで作成したのでこれが無いとデフォルトでpythonのインタラクティブシェルに入ってしまう．
 
+`--privileged=true`デバイスアクセスを伴うときに付ける(第6章)   
+`-v $DIR1:$DIR2`マウントしてファイルを共有する．(このオプション使うならDockerfileのWORKDIRとCOPYを変えてもよいかもしれない)
+
 #### version確認
 ```
 go version
@@ -99,3 +102,6 @@ https://qiita.com/yoshi389111/items/a9026769a6c6a8786c90
 
 pythonのバージョン切り替え 
 https://qiita.com/piyo_parfait/items/5abbe4bee2495a62acdc
+
+Docker privileged オプションについて  
+https://qiita.com/muddydixon/items/d2982ab0846002bf3ea8
