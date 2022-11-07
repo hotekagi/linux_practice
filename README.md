@@ -2,6 +2,12 @@
 
 MacBook使い（linuxではない人）が，dockerを使って「Linuxのしくみ」を走破する．
 
+## 注意
+
+`./src/ch*/**`の内容については「Linuxのしくみ」の内容あるいはそれを一部改変したもので，あくまでも個人的な動作確認用である．また元のコードは以下で公開されている．
+
+https://github.com/satoru-takeuchi/linux-in-practice-2nd
+
 ## メモ
 #### イメージを作成してコンテナを起動，bashで入る
 ```
