@@ -5,12 +5,19 @@ MacBook使い（linuxではない人）が，dockerを使って「Linuxのしく
 ## メモ
 #### イメージを作成してコンテナを起動，bashで入る
 ```
-./run.sh
+./run_tmp_container.sh
 ```
 pythonの環境構築がめんどくさそうなのでイメージで，golangはインストールしてくる．
 各章で使うコマンドも`apt-get`で入れていく．
 docker buildでキャッシュを効かせるために，
 変更の多いコマンドは分けて下の方に書くといいらしい．
+
+戦略としては，
+1. python3.11を取ってくる(なんとなく新しいやつにしたいから)
+2. goの環境構築
+3. matplotlibを入れる(pythonのpackageはそれほど頻繁には増やさない読み)
+4. apt-getいろいろ取ってくる
+5. ファイルをコピー
 
 3章でnumpy, matplotlib, PILが必要になる．
 コンテナ内かDockerfileで`pip install matplotlib`すればよい(numpyとPillowは依存パッケージなので付いてくる)
@@ -18,9 +25,11 @@ docker buildでキャッシュを効かせるために，
 matplotlibをimportしようとして気付いたが，本の通り`#!/usr/bin/python3`とshebangを書いているとpython3.9が呼ばれてしまうので，`#!/usr/local/bin/python3`とする必要がある．
 また，日本語フォントを入れないとmatplotlibが文字化けする．
 
+追記：/usr/bin/python3をpython3.11に書き換えればいいのでは？と思ったので書き換えた．
+
 #### コンテナのsrc内をコピーして取り出す
 ```
-./exported.sh
+./exported_from_src.sh
 ```
 
 VSCodeのDev Containersを使ってコンテナ内のファイルを直接編集する
@@ -81,3 +90,6 @@ http://dqn.sakusakutto.jp/2013/03/ubuntu_man_systemcall.html
 
 CPU情報が知りたくなったとき  
 https://qiita.com/yoshi389111/items/a9026769a6c6a8786c90
+
+pythonのバージョン切り替え 
+https://qiita.com/piyo_parfait/items/5abbe4bee2495a62acdc

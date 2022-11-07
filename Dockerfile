@@ -12,11 +12,14 @@ RUN set -x \
 ENV PATH $PATH:/usr/local/go/bin
 ENV GOPATH $HOME/work
 
-RUN apt-get update && \
-    apt-get install -y util-linux strace cron sysstat \
-        less man manpages-dev fonts-ipafont
+# /usr/bin/python3をpython3.11にupdate
+RUN update-alternatives --install /usr/bin/python3 python /usr/local/bin/python3.11 1
 
 RUN pip install matplotlib
+
+RUN apt-get update && \
+    apt-get install -y util-linux strace cron sysstat \
+        less man manpages-dev fonts-ipafont git
 
 # activate sar
 RUN sed -i 's/ENABLED="false"/ENABLED="true"/' /etc/default/sysstat && \
